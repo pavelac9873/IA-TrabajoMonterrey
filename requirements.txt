@@ -1,0 +1,12 @@
+# Python 3.10 o superior
+# Interfaz (compañeros 3 y 4)
+streamlit>=1.30
+# Mapa con estaciones y ruta (compañeros 3 y 4)
+plotly>=5.18
+# Lectura de estaciones.csv y conexiones.csv, tablas de g, h y f
+pandas>=2.0
+# Dijkstra de referencia independiente para los tests
+networkx>=3.2
+
+# Tests
+pytest>=7.4
