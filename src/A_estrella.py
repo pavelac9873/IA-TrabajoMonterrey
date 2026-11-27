@@ -1,5 +1,5 @@
 import heapq
-def a_star(grafo, origen, destino, heuristica):
+def a_star(grafo:dict[str, dict[str, float]], origen:str, destino:str, heuristica:dict[str, float]) -> tuple[list[str], float, list[dict]]:
     """
     A* con cola de prioridad. Esta implemetación solo encuentra la ruta óptima si h es consistente
     grafo: dict {nodo: {vecino: coste_en_minutos}}
@@ -7,14 +7,14 @@ def a_star(grafo, origen, destino, heuristica):
     heuristica: dict {nodo: h(n)}
     Devuelve: (ruta, coste_total_minutos, expandidas),expandidas = [{orden, estacion, g, h, f}]
     """
-    abiertos=[]
-    cerrados=set()
-    g = {origen:0}
-    padres={}
-    expandidas=[]
-    encontrado=False
-    contador=0
-    f={}
+    abiertos:list[tuple[float, str]] = []
+    cerrados:set[str] = set()
+    g:dict[str, float] = {origen: 0}
+    padres:dict[str, str] = {}
+    expandidas:list[dict] = []
+    encontrado:bool=False
+    contador:int=0
+    f:dict[str, float] = {}
     f[origen]=g[origen] + heuristica.get(origen)
     heapq.heappush(abiertos,(f[origen],origen))
     while abiertos and not encontrado:
